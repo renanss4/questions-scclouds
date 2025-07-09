@@ -5,10 +5,14 @@ def prime_linear(n: int) -> list:
         raise ValueError('Input deve ser um número inteiro maior que 1.')
     
     primes = []
-    current = 2
+    
+    if n >= 2:
+        primes.append(2)
+    
+    current = 3
     while current <= n:
         if is_prime(current):
             primes.append(current)
-        current += 1
-
+        current += 2  # Pula números pares
+    
     return primes

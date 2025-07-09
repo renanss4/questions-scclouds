@@ -7,7 +7,13 @@ def prime_recursive(n: int, current: int = 2) -> list:
     if current > n:
         return []
     
-    if is_prime(current):
-        return [current] + prime_recursive(n, current + 1)
+    if current == 2:
+        if n >= 2:
+            return [2] + prime_recursive(n, 3)
+        else:
+            return []
     
-    return prime_recursive(n, current + 1)
+    if is_prime(current):
+        return [current] + prime_recursive(n, current + 2)
+    
+    return prime_recursive(n, current + 2)
